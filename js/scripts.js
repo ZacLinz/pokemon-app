@@ -12,20 +12,12 @@ var pokemonRepository = (function () {
   }
 
   function loadList(item) {
-       return fetch(apiUrl).then(function (response) {
-           return response.json();
-       }).then(function (json) {
-           json.results.forEach(function (item) {
-               var pokemon = {
-                   name: item.name,
-                   detailsUrl: item.url
-               };
-               add(pokemon);
-           });
-       }).catch(function (e) {
-           console.error(e);
-       })
-   }
+       $.ajax(apiUrl, {datatype: 'json'}).then(function (response){
+         console.log(response.responeJSON);
+       });
+  };
+
+
 
   function loadDetails(item) {
       var url = item.detailsUrl;
@@ -50,10 +42,10 @@ var pokemonRepository = (function () {
 
 function addListItem(pokemon){
   var $entry = $('<li></li>');
-  var pokeName = $('<button>pokemon.name</button>')
+  var pokeName = $('<button>' + pokemon.name + '</button>')
   $('.pokedex-list').append($entry);
   $($entry).append(pokeName);
-  $(pokeName).on('click', function (event){
+  $($entry).on('click', function (event){
     showDetails(pokemon);
   });
 };
@@ -72,48 +64,47 @@ pokemonRepository.getAll().forEach(function(pokemon){
 
 
 var modalControls = (function(){
-  var $modalContainer = $('.modal-container');
+  var modalContainer = $('modal-container');
 
   function showModal(pokemon) {
-
     var modal = $('<div class = "modal"></div>');
 
-    var closeButton = $('<div class = "closeButton">Close</div>');
+    var closeButton = $('<div class = closeButton>Close</div>');
     closeButton.add('modal-close');
     closeButton.on('click', hideModal);
 
-    var nameElement = $('<h1>pokemon.name</h1>');
+    var nameElement = $('<h1>' + pokemon.name + '</h1>');
     //nameElement.innerText = pokemon.name;
 
-    var heightElement = $('<p>pokemon.height</p>');
+    var heightElement = $('<p>' + pokemon.height +'</p>');
     //heightElement.innerText = pokemon.height;
 
-    var imageElement = $('<img></img>')
+    var imageElement = $('<img>'+ pokemon.imageUrl + '</img>');
     //imageElement.setAttribute('src', pokemon.imageUrl);
 
     modal.append(closeButton);
     modal.append(nameElement);
     modal.append(heightElement);
     modal.append(imageElement);
-    $($modalContainer).append(modal);
+    $(modalContainer).append(modal);
 
-    $($modalContainer).add('is-visible');
+    $(modalContainer).add('is-visible');
 
   function hideModal(){
     $($modalContainer).remove('is-visible');
-  }
+  };
 
   $('button').on('click', () => {
     showModal(pokemon.name, pokemon.height, pokemon.imageUrl);
-  })
+  });
 
-  window.addEventListener('keydown', (e) => {
+  $(window).on('keydown', (e) => {
       if (e.key === 'Escape' && $modalContainer.classList.contains('is-visible')) {
         hideModal();
       }
     });
 
-    $($modalContainer).on('click', (e) => {
+    $(modalContainer).on('click', (e) => {
       var target = e.target;
       if (target === $modalContainer) {
         hideModal();
