@@ -1,15 +1,12 @@
 .pokedex-list{
-  display: flex;
   list-style-type: none;
-  flex-direction: column;
-  padding: 10px;
 }
 li{
-  flex: 0 1 50px;
-  padding: 5px;
-  align-items: flex-start;
+  display: block;
+  margin: 30px;
+  padding: 10px;
 }
-button {
+.button {
   border: none;
   background-color: #91b3ec;
   color: black;
