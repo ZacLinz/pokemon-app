@@ -57,7 +57,7 @@ var modalControls = (function() {
       hideModal
     );
     var nameElement = $("<h1>" + pokemon.name + "</h1>");
-    var heightElement = $("<p>" + pokemon.height + " inches </p>");
+    var heightElement = $("<p>" + pokemon.height / 10 + " meters</p>");
     var imageElement = $("<img src=" + pokemon.imageUrl + " />");
     modal
       .append(closeButton)
