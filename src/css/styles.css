@@ -7,11 +7,11 @@ li {
   padding: 10px;
 }
 body {
-  background-color: #ff775f;
+  background-color: #f45f45;
 }
 .button {
   border: none;
-  background-color: #0314ff;
+  background-color: #10a9e3;
   color: black;
   border-radius: 3px;
   transition-duration: 1s;

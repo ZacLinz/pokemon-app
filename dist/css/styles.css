@@ -7,11 +7,11 @@ li {
   padding: 10px;
 }
 body {
-  background-color: #ff775f;
+  background-color: #f45f45;
 }
 .button {
   border: none;
-  background-color: #0314ff;
+  background-color: #10a9e3;
   color: black;
   border-radius: 3px;
   transition-duration: 1s;
@@ -29,11 +29,9 @@ body {
   width: 125px;
   height: 50px;
 }
-/*add modal*/
 .modal-container {
   display: none;
 }
-
 .modal-container.is-visible {
   position: fixed;
   padding: 20px;
@@ -48,7 +46,6 @@ body {
   display: grid;
   text-align: center;
 }
-
 .modal {
   margin: auto;
   display: inline-block;
@@ -59,7 +56,6 @@ body {
   max-width: 700px;
   text-align: left;
 }
-
 .modal-close {
   float: right;
   -webkit-appearance: none;
@@ -68,21 +64,17 @@ body {
   color: #777;
   text-decoration: underline;
 }
-
 .modal h1 {
   margin-top: 0;
 }
-
 .modal img {
   display: block;
   margin: 0 auto;
   width: 250px;
 }
-
 .modal p {
   margin-bottom: 0;
 }
-
 header {
   width: 100%;
   display: grid;
