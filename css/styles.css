@@ -6,9 +6,12 @@ li{
   margin: 30px;
   padding: 10px;
 }
+body{
+  background-color: #ff775f;
+}
 .button {
   border: none;
-  background-color: #91b3ec;
+  background-color: #0314ff;
   color: black;
   border-radius: 3px;
   transition-duration: 1s;

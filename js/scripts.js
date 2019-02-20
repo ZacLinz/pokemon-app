@@ -43,7 +43,7 @@ var pokemonRepository = (function () {
 })();
 
 function addListItem(pokemon){
-  var $entry = $('<li>'+pokemon.name+'</li>');
+  var $entry = $('<li class = "button">'+pokemon.name+'</li>');
   $entry.on('click', function (event){
     showDetails(pokemon);
   });
@@ -93,14 +93,14 @@ var modalControls = (function(){
   });
 
   $(window).keydown(function (e){
-      if (e.key === 'Escape' && $.contains(modalContainer, 'is-visible')) {
+      if (e.key === 'Escape' && modalContainer.hasClass('is-visible')) {
         hideModal();
       }
     });
 
     modalContainer.click(function(e){
       var target = e.target
-      if (target === modalContainer) {
+      if (target.classList.contains('is-visible')){
         hideModal();
       }
     });
