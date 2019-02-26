@@ -72,7 +72,7 @@ var modalControls = (function() {
     );
 
     var nameElement = $("<h1>" + pokemon.name + "</h1>");
-    var heightElement = $("<p>" + pokemon.height + "</p>");
+    var heightElement = $("<p>" + pokemon.height/10 + " meters</p>");
     var imageElement = $("<img src=" + pokemon.imageUrl + " />");
 
     modal
